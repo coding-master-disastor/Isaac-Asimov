@@ -29,7 +29,7 @@ $.embedly.defaults.key = '1d5c48f7edc34c54bdae4c37b681ea2b';
                         animate: false
                     }
                 });
-                $this.html('<img class="gif-holder" src="loading_100.gif" + src + '" />');
+                $this.html('<img class="gif-holder" src="loading_100.gif"' + src + '" />');
                 $this.append('<img class="gif-preload" src="' + obj.url + '" />');
                 $this.data('promise', $.Deferred());
                 var elem = $this.find('.gif-preload').get(0);
