@@ -1,89 +1,29 @@
 <html>
 <head>
 <style>
-.gifs a {
-  position: relative;
-  display: block;
-}
-.gif-preload {
-  display: none;
-}
-.gif-loading {
-  position: absolute;
+img {
+  position: center;
   width: 40px;
   height: 40px;
-  font-size: 40px;
-  color: #fff;
   top: 0;
-  left: 0;
+  left: 100;
+}
+  @keyframes robot {
+    0%   {left: 100px; top: 0px;}
+    25%  {left: 200px; top: 0px;}
+    50%  {left: 300px; top: 0px;}
+    75%  {left: 400px; top: 0px;}
+    100% {left: 500px; top: 0px;}
+}
+  div {
+    animation-name: robot;
+    animation-duration: 20;
 }
 </style>
-<script>
-$.embedly.defaults.key = '1d5c48f7edc34c54bdae4c37b681ea2b';
-    $('.gifs a').embedly({
-        display: function(obj) {
-            if (obj.type === 'photo') {
-                var $this = $(this);
-                var src = $.embedly.display.display(obj.url, {
-                    query: {
-                        animate: false
-                    }
-                });
-                $this.html('<img class="gif-holder" src="loading_100.gif"' + src + '" />');
-                $this.append('<img class="gif-preload" src="' + obj.url + '" />');
-                $this.data('promise', $.Deferred());
-                var elem = $this.find('.gif-preload').get(0);
-                elem.onload = function() {
-       $this.data('promise').resolve();
-                };
-
-                // If the image is already in the browsers cache call the handler.
-                if (elem.complete) {
-                    $this.data('promise').resolve();
-                }
-                // Set the static gif url so we can use it later.
-                $(this).data('static_url', src);
-            } else {
-                $(this).parent().remove();
-            }
-        }
-    }).on('mouseenter', function() {
-        var $this = $(this);
-        animationStart($this)
-    }).on('mouseleave', function() {
-        var $this = $(this);
-        animationEnd($this);
-    });
-    function animationStart($this){
-        // Set the hover state to true so that the load function knows to run.
-        $this.data('hover', true);
-        // Create a function to load the gif into the image.
-        var load = function() {
-            if ($this.data('hover') === true) {
-                // Remove the loading image if there is one
-                $this.find('.gif-loading').remove();
-                $this.find('img.gif-holder').attr('src', $this.data('embedly').url);
-            }
-        };
-        $this.data('promise').done(load);
-        if ($this.data('promise').state() === 'pending') {
-            // Add a loading spinner.
-            $this.append('<i class="gif-loading fa fa-spinner fa fa-spin"></i>');
-            // we need to center it over the image.
-            $this.find('.gif-loading').css({
-                top: $this.height() / 2 - 20,
-                left: $this.width() / 2 - 20
-            });
-        }
-    }
-    function animationEnd($this){
-      
-        $this.data('hover', false);
-        $this.find('.gif-loading').remove();
-        $this.find('img.gif-holder').attr('src', $this.data('static_url'));
-    }
-</script>
 </head>
 <body>
-</body>
+  <div>
+<img src="robot.jpg"></img>
+</div>
+  </body>
 </html>
