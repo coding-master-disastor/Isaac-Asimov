@@ -1,24 +1,37 @@
 <html>
 <head>
+<meta http-equiv="refresh" content="18; url=http://google.com/" />
 <style>
-  @ keyframes robot {
-    0%   {left: 100px; top: 0px;}
-    25%  {left: 200px; top: 0px;}
-    50%  {left: 300px; top: 0px;}
-    75%  {left: 400px; top: 0px;}
-    100% {left: 500px; top: 0px;}
+img {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    -webkit-animation: robot 18s;
+    animation: robot 18s;
 }
-  img{
-  animation-name: robot; 
-  animation-duration:20s;
-  width: 500px;
-  height: 800px;
+  @keyframes robot {
+       0%  {left: 0px; top: 0px;}
+      10%  {left: 100px; top: 0px;}
+      20%  {left: 200px; top: 0px;}
+      30%  {left: 300px; top: 0px;}
+      40%  {left: 400px; top: 0px;}
+      50%  {left: 500px; top: 0px;}
+      60%  {left: 600px; top: 0px;}
+      70%  {left: 700px; top: 0px;}
+      80%  {left: 800px; top: 0px;}
+      90%  {left: 900px; top: 0px;}
+     100% {left: 1000px; top: 0px;}
   }
-</style>
+  font {
+     font: Bank Gothic EF-Regular;
+     color: #42dff4;
+     font-size: 50px;
+     font-weight: bolder;
+  }
+  </style>
 </head>
 <body>
-  <div>
-<img src="download.jpg"></img>
-</div>
-  </body>
+<img src="robots.jpg"></img>
+<center><font> Loading...</font></center>
+</body>
 </html>
